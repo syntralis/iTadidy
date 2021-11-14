@@ -1,0 +1,207 @@
+// Variables à utiliser
+$tr: all ease .3s;
+
+img {
+   width: 100%;
+}
+button {
+   background: none;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   transition: $tr;
+   &:hover {
+      transform: scale(1.2);
+   }
+}
+body {
+   background: linear-gradient(to bottom, #71C390, #4E9151 60%);
+   margin: 0;
+   overflow: hidden;
+}
+.game {
+   height: 100vh;
+   width: 100%;
+   position: relative;
+}
+
+// Parallax Background
+.bg {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   z-index: -99;
+}
+.parallax {
+   position: relative;
+   z-index: -10;
+   height: 100%;
+   &>div {
+      position: fixed !important;
+      top: -5% !important;
+      left: -5% !important;
+      width: 110%;
+      height: 100%;
+   }
+   .layer-1 {
+      background: url(./assets/background/1.png);
+      background-size: contain;
+   }
+   .layer-2 {
+      background: url(./assets/background/2.png);
+      background-size: contain;
+   }
+   .layer-3 {
+      background: url(./assets/background/3.png);
+      background-size: contain;
+   }
+   .layer-4 {
+      top: -95% !important;
+      background: url(./assets/background/4.png);
+      background-size: cover;
+      height: 200%;
+   }
+}
+
+.sound {
+   width: 100px;
+   position: fixed;
+   bottom: 35px;
+   left: 35px;
+}
+
+.home, .level {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   flex-direction: column;
+   .logo {
+      width: 600px;
+   }
+   .play {
+      width: 175px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      &:hover {
+         transform: translate(-50%, -50%) scale(1.2);
+      }
+   }
+}
+
+.prev {
+   width: 100px;
+   position: fixed;
+   top: 35px;
+   left: 35px;
+}
+
+.level {
+   .list {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+      button {
+         color: #fff;
+         font-family: "cartoon";
+         padding: 30px;
+         font-size: 60px;
+         background: url(./assets/level-btn-bg.png) center no-repeat;
+         background-size: contain;
+      }
+   }
+}
+
+.restart {
+   width: 100px;
+   margin: auto;
+   &.ui {
+      position: fixed;
+      top: 35px;
+      right: 35px;
+   }
+}
+.main {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   font-family: "cartoon";
+   user-select: none;
+   .container {
+      width: 40%;
+      background: #83471B;
+      padding: 20px;
+      border-radius: 20px;
+   }
+   .card-grid {
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      
+      grid-column-gap: 10px;
+      grid-row-gap: 5px;
+   }
+   .remainingTurns {
+      color: #fff;
+      text-align: center;
+      text-shadow: #000 0 0 5px;
+      font-size: 18px;
+      span {
+         color: #97D811;
+      }
+   }
+}
+
+.popup {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba($color: #000000, $alpha: .8);
+   .container {
+      background: url(./assets/popup.png) center no-repeat;
+      background-size: contain;
+      text-align: center;
+      padding: 150px;
+      font-size: 40px;
+   }
+}
+
+@media all and (max-width: 1500px) {
+   .restart, .sound, .prev {
+      width: 75px;
+   }
+   .home {
+      .play {
+         width: 110px;
+      }
+   }
+   .home .logo, .level .logo {
+      width: 400px;
+   }
+   .level .list button {
+      font-size: 40px;
+   }
+   .main .remainingTurns {
+      font-size: 16px;
+   }
+   .popup .container {
+      padding: 100px;
+      font-size: 28px;
+   }
+}
